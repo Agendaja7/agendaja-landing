@@ -13,7 +13,7 @@ const features = [
 
 export default function HeroSection() {
   return (
-    <section className="pt-24 pb-16 px-4 bg-white">
+    <section className="pt-32 pb-16 px-4 bg-white">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}

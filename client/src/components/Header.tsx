@@ -1,6 +1,6 @@
-// Design: Clean white header with the official AgendaJá logo
-// Logo: Official AJ monogram - dark background with gold lettering
-// Logo size: h-12 (48px) - compact enough to not overlap hero text
+// Design: Clean white header with prominent, legible AgendaJá logo
+// Logo: Official AJ monogram - large enough to read the company name clearly
+// Layout: Logo on left (larger), nav items centered, CTAs on right
 import { useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,21 +10,24 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 w-full bg-white border-b border-gray-100 z-50">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo - tamanho reduzido para não cobrir o conteúdo hero */}
-        <div className="flex items-center gap-2 flex-1">
-          <motion.img
+      <div className="container mx-auto px-4 py-2 flex items-center justify-between">
+        {/* Logo - Larger and more prominent */}
+        <motion.div
+          className="flex items-center flex-shrink-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+        >
+          <img
             src="/manus-storage/agendaja-logo-new_3a9f46b0.png"
-            alt="AgendaJá Logo"
-            className="h-12 w-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
+            alt="AgendaJá - Gestão Empresarial Inteligente"
+            className="h-20 w-auto"
+            title="AgendaJá"
           />
-        </div>
+        </motion.div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop Nav - Centered */}
+        <nav className="hidden md:flex items-center gap-8 flex-1 justify-center">
           {[
             { label: "Recursos", href: "#features" },
             { label: "Contato", href: "#contact" },
@@ -42,9 +45,9 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop Actions */}
+        {/* Desktop Actions - Right side */}
         <motion.div
-          className="hidden md:flex items-center gap-2"
+          className="hidden md:flex items-center gap-2 flex-shrink-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
@@ -72,7 +75,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700"
+          className="md:hidden text-gray-700 flex-shrink-0"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
