@@ -1,6 +1,6 @@
-// Design: Clean white header with prominent, legible AgendaJá logo
-// Logo: Official AJ monogram - large enough to read the company name clearly
-// Layout: Logo on left (larger), nav items centered, CTAs on right
+// Design: Clean white header with large, prominent AgendaJá logo and text
+// Logo: Official AJ monogram + text "AgendaJá" - must be immediately legible
+// Layout: Logo + text on left (large), nav items on right, CTAs on far right
 import { useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,24 +10,27 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 w-full bg-white border-b border-gray-100 z-50">
-      <div className="container mx-auto px-4 py-2 flex items-center justify-between">
-        {/* Logo - Larger and more prominent */}
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        {/* Logo + Brand Name - Large and Prominent */}
         <motion.div
-          className="flex items-center flex-shrink-0"
+          className="flex items-center gap-3 flex-shrink-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
         >
           <img
             src="/manus-storage/agendaja-logo-new_3a9f46b0.png"
-            alt="AgendaJá - Gestão Empresarial Inteligente"
-            className="h-20 w-auto"
-            title="AgendaJá"
+            alt="AgendaJá"
+            className="h-32 w-auto"
           />
+          <div className="hidden sm:block">
+            <h1 className="text-2xl font-bold text-gray-900">AgendaJá</h1>
+            <p className="text-xs text-gray-600">Gestão Empresarial</p>
+          </div>
         </motion.div>
 
-        {/* Desktop Nav - Centered */}
-        <nav className="hidden md:flex items-center gap-8 flex-1 justify-center">
+        {/* Desktop Nav - Right side */}
+        <nav className="hidden lg:flex items-center gap-6 flex-1 justify-end mr-6">
           {[
             { label: "Recursos", href: "#features" },
             { label: "Contato", href: "#contact" },
@@ -45,15 +48,15 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop Actions - Right side */}
+        {/* Desktop Actions - Far right */}
         <motion.div
-          className="hidden md:flex items-center gap-2 flex-shrink-0"
+          className="hidden lg:flex items-center gap-2 flex-shrink-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
         >
           <button
-            className="px-4 py-2 text-gray-700 font-medium hover:text-gray-900 transition-colors text-sm"
+            className="px-3 py-2 text-gray-700 font-medium hover:text-gray-900 transition-colors text-sm"
             onClick={() => window.open("https://app.agendaja7.com/login", "_blank")}
           >
             Entrar
@@ -75,7 +78,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700 flex-shrink-0"
+          className="lg:hidden text-gray-700 flex-shrink-0"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -86,7 +89,7 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3"
+            className="lg:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
