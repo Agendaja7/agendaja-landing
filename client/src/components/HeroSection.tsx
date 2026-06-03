@@ -1,9 +1,12 @@
 // Design: Clean white hero with bold typography and green accent
-// Layout: Two-column grid (text left, image right)
+// Layout: Two-column grid (text left, image+video right)
+// Video: Positioned below or beside image depending on screen size
 import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Play } from "lucide-react";
+import { useState } from "react";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663624859445/oKMEiRXW9N8tvtjHqdRJY3/agendaja-hero-professional-Go29vu43UKLJ9Xj4e6sbir.webp";
+const HERO_VIDEO = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663692489412/uwkViZfGMqkxZBpG.mp4";
 
 const features = [
   "Agenda online inteligente",
@@ -12,6 +15,8 @@ const features = [
 ];
 
 export default function HeroSection() {
+  const [videoPlaying, setVideoPlaying] = useState(false);
+
   return (
     <section className="pt-48 pb-16 px-4 bg-white">
       <div className="container mx-auto">
@@ -64,6 +69,13 @@ export default function HeroSection() {
                 Teste Grátis por 14 Dias
                 <ArrowRight size={18} />
               </button>
+              <button
+                className="px-6 py-3 bg-gray-900 text-white font-semibold rounded hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
+                onClick={() => window.open("https://app.agendaja7.com/register", "_blank")}
+              >
+                Entrar
+                <ArrowRight size={18} />
+              </button>
               <a
                 href="https://wa.me/5561981508483"
                 target="_blank"
@@ -75,18 +87,31 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Hero Image */}
+          {/* Hero Image + Video */}
           <motion.div
-            className="relative"
+            className="space-y-4"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <img
-              src={HERO_IMAGE}
-              alt="Profissional usando AgendaJa"
-              className="w-full h-auto object-cover rounded-xl shadow-lg"
-            />
+            {/* Image - Always visible */}
+            <div className="relative">
+              <img
+                src={HERO_IMAGE}
+                alt="Profissional usando AgendaJa"
+                className="w-full h-auto object-cover rounded-xl shadow-lg"
+              />
+            </div>
+
+            {/* Video - Below image on mobile, beside on larger screens */}
+            <div className="relative bg-black rounded-xl overflow-hidden shadow-lg aspect-video">
+              <video
+                src={HERO_VIDEO}
+                className="w-full h-full object-cover"
+                controls
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23000' width='1920' height='1080'/%3E%3C/svg%3E"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
