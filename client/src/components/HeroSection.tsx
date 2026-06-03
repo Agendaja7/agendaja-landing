@@ -4,6 +4,7 @@
 import { motion } from "framer-motion";
 import { Check, ArrowRight, Play } from "lucide-react";
 import { useState } from "react";
+import { useMetaPixel } from "@/hooks/useMetaPixel";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663624859445/oKMEiRXW9N8tvtjHqdRJY3/agendaja-hero-professional-Go29vu43UKLJ9Xj4e6sbir.webp";
 const HERO_VIDEO = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663692489412/uwkViZfGMqkxZBpG.mp4";
@@ -16,6 +17,12 @@ const features = [
 
 export default function HeroSection() {
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const { trackLead } = useMetaPixel();
+
+  const handleCTAClick = (ctaName: string) => {
+    trackLead({ cta_name: ctaName, section: 'hero' });
+    window.open("https://www.agendaja7.com/", "_blank");
+  };
 
   return (
     <section className="pt-48 pb-16 px-4 bg-white">
@@ -64,14 +71,14 @@ export default function HeroSection() {
             >
               <button
                 className="px-6 py-3 bg-green-500 text-white font-semibold rounded hover:bg-green-600 transition-all flex items-center justify-center gap-2"
-                onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
+                onClick={() => handleCTAClick('Teste Grátis por 14 Dias')}
               >
                 Teste Grátis por 14 Dias
                 <ArrowRight size={18} />
               </button>
               <button
                 className="px-6 py-3 bg-gray-900 text-white font-semibold rounded hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
-                onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
+                onClick={() => handleCTAClick('Entrar')}
               >
                 Entrar
                 <ArrowRight size={18} />

@@ -1,6 +1,7 @@
 // Design: Dark background contact section with three contact cards
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { useMetaPixel } from "@/hooks/useMetaPixel";
 
 const contacts = [
   {
@@ -27,6 +28,12 @@ const contacts = [
 ];
 
 export default function ContactSection() {
+  const { trackLead } = useMetaPixel();
+
+  const handleCTAClick = () => {
+    trackLead({ cta_name: 'Comece Agora - Teste Grátis', section: 'contact' });
+    window.open("https://www.agendaja7.com/", "_blank");
+  };
   return (
     <section id="contact" className="py-16 px-4 bg-gray-900">
       <div className="container mx-auto">
@@ -86,7 +93,7 @@ export default function ContactSection() {
         >
           <button
             className="px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all text-lg"
-            onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
+            onClick={handleCTAClick}
           >
             Comece Agora - Teste Grátis
           </button>

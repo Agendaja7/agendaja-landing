@@ -1,8 +1,9 @@
 // AgendaJá - Landing Page
-// Sections: Header, Hero, Features (12 modules), Contact, Footer
+// Sections: Header, Hero, Features (12 modules), FAQ, Contact, Footer
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
+import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -13,6 +14,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <FeaturesSection />
+        <FAQSection />
         <ContactSection />
       </main>
       <Footer />

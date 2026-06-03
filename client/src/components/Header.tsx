@@ -4,9 +4,16 @@
 import { useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useMetaPixel } from "@/hooks/useMetaPixel";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { trackLead } = useMetaPixel();
+
+  const handleCTAClick = (ctaName: string) => {
+    trackLead({ cta_name: ctaName, section: 'header' });
+    window.open("https://www.agendaja7.com/", "_blank");
+  };
 
   return (
     <header className="fixed top-0 w-full bg-white border-b border-gray-100 z-50">
@@ -57,13 +64,13 @@ export default function Header() {
         >
           <button
             className="px-3 py-2 text-gray-700 font-medium hover:text-gray-900 transition-colors text-sm"
-            onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
+            onClick={() => handleCTAClick('Entrar')}
           >
             Entrar
           </button>
           <button
             className="px-4 py-2 bg-gray-900 text-white font-medium rounded hover:bg-gray-800 transition-all text-sm"
-            onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
+            onClick={() => handleCTAClick('Teste Grátis')}
           >
             Teste Grátis
           </button>
@@ -100,13 +107,13 @@ export default function Header() {
             <div className="flex flex-col gap-2 pt-2">
               <button
                 className="w-full px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded text-sm"
-                onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
+                onClick={() => handleCTAClick('Entrar')}
               >
                 Entrar
               </button>
               <button
                 className="w-full px-4 py-2 bg-gray-900 text-white font-medium rounded text-sm"
-                onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
+                onClick={() => handleCTAClick('Teste Grátis')}
               >
                 Teste Grátis
               </button>
