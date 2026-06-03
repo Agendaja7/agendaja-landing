@@ -86,7 +86,7 @@ export default function ContactSection() {
         >
           <button
             className="px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all text-lg"
-            onClick={() => window.open("https://app.agendaja7.com/register", "_blank")}
+            onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
           >
             Comece Agora - Teste Grátis
           </button>

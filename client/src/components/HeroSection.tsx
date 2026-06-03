@@ -64,14 +64,14 @@ export default function HeroSection() {
             >
               <button
                 className="px-6 py-3 bg-green-500 text-white font-semibold rounded hover:bg-green-600 transition-all flex items-center justify-center gap-2"
-                onClick={() => window.open("https://app.agendaja7.com/register", "_blank")}
+                onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
               >
                 Teste Grátis por 14 Dias
                 <ArrowRight size={18} />
               </button>
               <button
                 className="px-6 py-3 bg-gray-900 text-white font-semibold rounded hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
-                onClick={() => window.open("https://app.agendaja7.com/register", "_blank")}
+                onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
               >
                 Entrar
                 <ArrowRight size={18} />

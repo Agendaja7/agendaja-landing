@@ -57,13 +57,13 @@ export default function Header() {
         >
           <button
             className="px-3 py-2 text-gray-700 font-medium hover:text-gray-900 transition-colors text-sm"
-            onClick={() => window.open("https://app.agendaja7.com/login", "_blank")}
+            onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
           >
             Entrar
           </button>
           <button
             className="px-4 py-2 bg-gray-900 text-white font-medium rounded hover:bg-gray-800 transition-all text-sm"
-            onClick={() => window.open("https://app.agendaja7.com/register", "_blank")}
+            onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
           >
             Teste Grátis
           </button>
@@ -100,13 +100,13 @@ export default function Header() {
             <div className="flex flex-col gap-2 pt-2">
               <button
                 className="w-full px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded text-sm"
-                onClick={() => window.open("https://app.agendaja7.com/login", "_blank")}
+                onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
               >
                 Entrar
               </button>
               <button
                 className="w-full px-4 py-2 bg-gray-900 text-white font-medium rounded text-sm"
-                onClick={() => window.open("https://app.agendaja7.com/register", "_blank")}
+                onClick={() => window.open("https://www.agendaja7.com/", "_blank")}
               >
                 Teste Grátis
               </button>
