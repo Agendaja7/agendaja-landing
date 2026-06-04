@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "O cliente consegue agendar sozinho?",
-    answer: "Sim. O cliente pode realizar agendamentos online.",
+    answer: "Sim. O cliente pode realizar agendamentos online 24 horas.",
   },
   {
     question: "O AgendaJa envia lembretes automáticos?",
