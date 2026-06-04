@@ -7,7 +7,7 @@ import { useState } from "react";
 const faqs = [
   {
     question: "O AgendaJa funciona para qual tipo de negócio?",
-    answer: "Salões, barbearias, estética e empresas que trabalham com agendamentos.",
+    answer: "O AgendaJa foi desenvolvido para empresas que trabalham com atendimento por horário agendado, como: Salões de Beleza, Barbearias, Clínicas de Estética, Espaços de Manicure e Nail Design, Clínicas Odontológicas, Consultórios Médicos, Clínicas de Fisioterapia, Clínicas de Psicologia, Pet Shops, Centros de Terapias, Studios de Tatuagem, Escolas e Cursos com agendamento de aulas, e Empresas de prestação de serviços que trabalham com horários marcados. Se sua empresa agenda clientes, consultas, atendimentos ou serviços, o AgendaJa pode ajudar a organizar toda a operação em um único lugar.",
   },
   {
     question: "Preciso instalar algum programa?",
