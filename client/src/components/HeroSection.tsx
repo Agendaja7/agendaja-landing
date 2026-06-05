@@ -21,7 +21,11 @@ export default function HeroSection() {
 
   const handleCTAClick = (ctaName: string) => {
     trackLead({ cta_name: ctaName, section: 'hero' });
-    window.open("https://www.agendaja7.com/", "_blank");
+    if (ctaName === 'Entrar') {
+      window.open("https://sistema.agendaja7.com/login", "_blank");
+    } else if (ctaName.includes('Teste Grátis')) {
+      window.open("https://sistema.agendaja7.com/cadastro", "_blank");
+    }
   };
 
   return (
