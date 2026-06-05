@@ -2,6 +2,7 @@
 // Sections: Header, Hero, Features (12 modules), FAQ, Contact, Footer
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import IndustriesSection from "@/components/IndustriesSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
@@ -13,6 +14,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
+        <IndustriesSection />
         <FeaturesSection />
         <FAQSection />
         <ContactSection />
