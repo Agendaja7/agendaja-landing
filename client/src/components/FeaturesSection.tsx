@@ -44,10 +44,10 @@ export default function FeaturesSection() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-            12 Módulos Integrados
+            Tudo que sua empresa precisa em um único sistema
           </h2>
           <p className="text-gray-600">
-            Sistema completo para gestão empresarial profissional
+            Uma plataforma completa para organizar sua operação e facilitar o dia a dia do seu negócio
           </p>
         </motion.div>
 

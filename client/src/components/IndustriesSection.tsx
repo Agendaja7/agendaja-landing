@@ -29,6 +29,7 @@ const industries = [
   { name: "Centros Terapêuticos", icon: Heart },
   { name: "Studios de Tatuagem", icon: Wand2 },
   { name: "Escolas e Cursos com agendamento de aulas", icon: BookOpen },
+  { name: "Podologia", icon: Dumbbell },
   { name: "Empresas de prestação de serviços com horários marcados", icon: Briefcase },
 ];
 

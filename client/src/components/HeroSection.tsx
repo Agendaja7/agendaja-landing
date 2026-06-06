@@ -123,6 +123,41 @@ export default function HeroSection() {
                 poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23000' width='1920' height='1080'/%3E%3C/svg%3E"
               />
             </div>
+
+            {/* Video Persuasive Call */}
+            <motion.div
+              className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-200"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                🎥 Assista ao vídeo e descubra como parar de perder tempo com agendamentos pelo WhatsApp.
+              </h3>
+              <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                Todos os dias empresas perdem tempo confirmando horários, respondendo mensagens e organizando agendas manualmente.
+                Em menos de 40 segundos, veja como o AgendaJá simplifica esse processo e ajuda sua empresa a agendar clientes de forma mais rápida e organizada.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Demonstração rápida</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Menos mensagens manuais</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Mais organização</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Mais tempo para atender seus clientes</span>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
