@@ -120,6 +120,11 @@ export default function HeroSection() {
                 src={HERO_VIDEO}
                 className="w-full h-full object-cover"
                 controls
+                controlsList="nodownload"
+                onEnded={(e) => {
+                  const video = e.target as HTMLVideoElement;
+                  video.currentTime = video.duration - 0.1;
+                }}
                 poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23000' width='1920' height='1080'/%3E%3C/svg%3E"
               />
             </div>
