@@ -1,0 +1,172 @@
+// Design: Clean white hero with bold typography and green accent
+// Layout: Two-column grid (text left, image+video right)
+// Video: Positioned below or beside image depending on screen size
+import { motion } from "framer-motion";
+import { Check, ArrowRight, Play } from "lucide-react";
+import { useState } from "react";
+import { useMetaPixel } from "@/hooks/useMetaPixel";
+
+const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663624859445/oKMEiRXW9N8tvtjHqdRJY3/agendaja-hero-professional-Go29vu43UKLJ9Xj4e6sbir.webp";
+const HERO_VIDEO = "/videos/agendaja.mp4";
+
+const features = [
+  "Agenda online inteligente",
+  "Gestão de clientes e contatos",
+  "Controle financeiro em tempo real",
+];
+
+export default function HeroSection() {
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const { trackLead } = useMetaPixel();
+
+  const handleCTAClick = (ctaName: string) => {
+    trackLead({ cta_name: ctaName, section: 'hero' });
+    if (ctaName === 'Entrar') {
+      window.open("https://sistema.agendaja7.com/login", "_blank");
+    } else if (ctaName.includes('Teste Grátis')) {
+      window.open("https://sistema.agendaja7.com/cadastro", "_blank");
+    }
+  };
+
+  return (
+    <section className="pt-48 pb-16 px-4 bg-white">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="space-y-3">
+              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                Gestão Empresarial{" "}
+                <span className="text-green-500">Inteligente</span>
+              </h1>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Controle sua agenda, clientes, serviços e financeiro em um único
+                lugar. Automação inteligente para empresas que crescem.
+              </p>
+            </div>
+
+            {/* Feature List */}
+            <div className="space-y-2">
+              {features.map((feature, i) => (
+                <motion.div
+                  key={feature}
+                  className="flex items-center gap-3"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
+                >
+                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700 font-medium">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-3 pt-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+            >
+              <button
+                className="px-6 py-3 bg-green-500 text-white font-semibold rounded hover:bg-green-600 transition-all flex items-center justify-center gap-2"
+                onClick={() => handleCTAClick('Teste Grátis por 14 Dias')}
+              >
+                Teste Grátis por 14 Dias
+                <ArrowRight size={18} />
+              </button>
+              <button
+                className="px-6 py-3 bg-gray-900 text-white font-semibold rounded hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
+                onClick={() => handleCTAClick('Entrar')}
+              >
+                Entrar
+                <ArrowRight size={18} />
+              </button>
+              <a
+                href="https://wa.me/5561981508483"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 border-2 border-green-500 text-green-600 font-semibold rounded hover:bg-green-50 transition-all flex items-center justify-center gap-2"
+              >
+                Conversar no WhatsApp
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Hero Image + Video */}
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {/* Image - Always visible */}
+            <div className="relative">
+              <img
+                src={HERO_IMAGE}
+                alt="Profissional usando AgendaJa"
+                className="w-full h-auto object-cover rounded-xl shadow-lg"
+              />
+            </div>
+
+            {/* Video - Below image on mobile, beside on larger screens */}
+            <div className="relative bg-black rounded-xl overflow-hidden shadow-lg aspect-video">
+              <video
+                src={HERO_VIDEO}
+                className="w-full h-full object-cover"
+                controls
+                controlsList="nodownload"
+                onEnded={(e) => {
+                  const video = e.target as HTMLVideoElement;
+                  video.currentTime = 0;
+                  video.pause();
+                }}
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23000' width='1920' height='1080'/%3E%3C/svg%3E"
+              />
+            </div>
+
+            {/* Video Persuasive Call */}
+            <motion.div
+              className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-200"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                🎥 Assista ao vídeo e descubra como parar de perder tempo com agendamentos pelo WhatsApp.
+              </h3>
+              <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                Todos os dias empresas perdem tempo confirmando horários, respondendo mensagens e organizando agendas manualmente.
+                Em menos de 40 segundos, veja como o AgendaJá simplifica esse processo e ajuda sua empresa a agendar clientes de forma mais rápida e organizada.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Demonstração rápida</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Menos mensagens manuais</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Mais organização</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Mais tempo para atender seus clientes</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
