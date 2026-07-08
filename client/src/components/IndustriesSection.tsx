@@ -84,7 +84,7 @@ export default function IndustriesSection() {
         {/* CTA */}
         <div className="text-center">
           <a
-            href="https://sistema.agendaja7.com/cadastro"
+            href="https://sistema.agendaja7.com/empresa/cadastro"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors text-lg"

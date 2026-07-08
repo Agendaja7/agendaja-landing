@@ -32,7 +32,7 @@ export default function ContactSection() {
 
   const handleCTAClick = () => {
     trackLead({ cta_name: 'Comece Agora - Teste Grátis', section: 'contact' });
-    window.open("https://sistema.agendaja7.com/cadastro", "_blank");
+    window.open("https://sistema.agendaja7.com/empresa/cadastro", "_blank");
   };
   return (
     <section id="contact" className="py-16 px-4 bg-gray-900">

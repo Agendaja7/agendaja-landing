@@ -67,7 +67,7 @@ export default function Footer() {
                 Contato
               </a>
               <a
-                href="https://sistema.agendaja7.com/login"
+                href="https://sistema.agendaja7.com/empresa/login"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors block"
